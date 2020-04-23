@@ -6,5 +6,6 @@ RUN echo "deb http://deb.debian.org/debian buster-backports main" >> /etc/apt/so
 	apt-get -y update && \
 	apt-get -y install -t buster-backports --no-install-recommends kicad kicad-libraries && \
 	apt-get -y autoremove && \
-	rm -rf /var/lib/apt/lists/*
+	rm -rf /var/lib/apt/lists/* \
+	rm -rf /usr/share/icons/Adwaita/
 
