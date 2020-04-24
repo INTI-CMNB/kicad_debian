@@ -2,7 +2,7 @@
 
 Docker image for KiCad on Debian GNU/Linux.
 
-The main objetive is to use it as a base for KiCad automation in CI/CD environments.
+The main objetive is to use it as a base for [KiCad automation in CI/CD environments](https://github.com/INTI-CMNB/kicad_ci_test).
 
 The images are uploaded to [Docker Hub](https://hub.docker.com/repository/docker/setsoft/kicad_debian).
 
@@ -29,3 +29,14 @@ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/home/$USER:/home/$USER:rw" \
     setsoft/kicad_auto:10.3-5.1.5 kicad
+```
+
+The following scripts are provided as examples:
+
+* [build.sh](https://github.com/INTI-CMNB/kicad_debian/blob/master/build.sh) creates the image from the [Dockerfile](https://github.com/INTI-CMNB/kicad_debian/blob/master/Dockerfile)
+* [run_kicad_same_user.sh](https://github.com/INTI-CMNB/kicad_debian/blob/master/run_kicad_same_user.sh) runs KiCad using the same user you are using in the host system, your home directory is shared with the docker image.
+* [run_shell_same_user.sh](https://github.com/INTI-CMNB/kicad_debian/blob/master/run_shell_same_user.sh) runs a shell using the same user you are using in the host system, your home directory is shared with the docker image.
+
+
+
+
