@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:10.4-slim
 MAINTAINER Salvador E. Tropea <set@ieee.org>
 LABEL Description="Minimal KiCad image based on Debian"
 

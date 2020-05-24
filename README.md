@@ -9,7 +9,8 @@ The images are uploaded to [Docker Hub](https://hub.docker.com/repository/docker
 The current tags are:
 
 * **10.3-5.0.2** is Debian 10.3 + KiCad 5.0.2 (default stable)
-* **10.3-5.1.5** (same as **latest**) is Debian 10.3 + KiCad 5.1.5 (backport)
+* **10.3-5.1.5** is Debian 10.3 + KiCad 5.1.5 (backport)
+* **10.4-5.1.6** (same as **latest**) is Debian 10.4 + KiCad 5.1.6 (backport)
 
 The installations are minimal, but contains schematic and footprint libraries.
 The 3D models aren't included, they weight 10 times the size of these images.
