@@ -1,0 +1,16 @@
+FROM debian:bullseye-slim
+MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
+LABEL Description="Minimal KiCad image based on Debian"
+
+COPY *.list /
+RUN	apt-get -y update && \
+	apt-get -y install --no-install-recommends gnupg2 && \
+	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA854F61C4D0D9572BB95E5245D5502FAD7A805  && \
+	apt-get -y remove gnupg2 && \
+	mv /*.list /etc/apt/sources.list.d/ && \
+	apt-get -y update && \
+	apt-get -y install --no-install-recommends kicad-nightly kicad-nightly-symbols kicad-nightly-footprints && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/* \
+	rm -rf /usr/share/icons/Adwaita/
+COPY *-lib-table /usr/share/kicad-nightly/template/

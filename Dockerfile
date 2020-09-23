@@ -1,5 +1,5 @@
 FROM debian:10.4-slim
-MAINTAINER Salvador E. Tropea <set@ieee.org>
+MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
 LABEL Description="Minimal KiCad image based on Debian"
 
 RUN echo "deb http://deb.debian.org/debian buster-backports main" >> /etc/apt/sources.list && \
