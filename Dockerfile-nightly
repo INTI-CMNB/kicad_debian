@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
-LABEL Description="Minimal KiCad image based on Debian"
+LABEL Description="Minimal KiCad image based on Debian (nightly)"
 
 COPY *.list /
 COPY *.deb /
