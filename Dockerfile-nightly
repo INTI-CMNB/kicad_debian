@@ -14,6 +14,6 @@ RUN	apt-get -y update && \
 	apt-get -y install /libocct-*.deb && \
 	apt-get -y install --no-install-recommends libngspice0 kicad-nightly kicad-nightly-symbols kicad-nightly-footprints && \
 	apt-get -y autoremove && \
-	rm -rf /var/lib/apt/lists/* \
+	rm -rf /var/lib/apt/lists/* /*.deb && \
 	rm -rf /usr/share/icons/Adwaita/
 COPY *-lib-table /usr/share/kicad-nightly/template/
