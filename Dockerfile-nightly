@@ -5,14 +5,12 @@ LABEL Description="Minimal KiCad image based on Debian (nightly)"
 COPY *.list /
 COPY *.deb /
 RUN	apt-get -y update && \
-	apt-get -y install --no-install-recommends gnupg2 && \
-	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA854F61C4D0D9572BB95E5245D5502FAD7A805  && \
-	apt-get -y remove gnupg2 && \
+	apt-get -y install --no-install-recommends ca-certificates && \
+	/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/kicad-nightly/pool/main/s/sur5r-keyring/sur5r-keyring_2021.02.02_all.deb sur5r-keyring.deb SHA256:cccfb1dd7d6b1b6a137bb96ea5b5eef18a0a4a6df1d6c0c37832025d2edaa710 && \
+	dpkg -i ./sur5r-keyring.deb && \
 	mv /*.list /etc/apt/sources.list.d/ && \
 	apt-get -y update && \
-	apt-get -y install /libpython3.8-stdlib_3.8.7-1_amd64.deb /libpython3.8_3.8.7-1_amd64.deb /libpython3.8-minimal_3.8.7-1_amd64.deb && \
-	apt-get -y install /libocct-*.deb && \
-	apt-get -y install --no-install-recommends libngspice0 kicad-nightly kicad-nightly-symbols kicad-nightly-footprints && \
+	apt-get -y install --no-install-recommends libngspice0 kicad kicad-libraries kicad-nightly kicad-nightly-symbols kicad-nightly-footprints && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /*.deb && \
 	rm -rf /usr/share/icons/Adwaita/
