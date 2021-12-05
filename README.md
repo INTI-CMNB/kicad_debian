@@ -10,8 +10,9 @@ The current tags are:
 
 * **10.3-5.0.2** is Debian 10.3 + KiCad 5.0.2 (default stable)
 * **10.3-5.1.5** is Debian 10.3 + KiCad 5.1.5 (backport)
-* **10.4-5.1.6** (same as **latest**) is Debian 10.4 + KiCad 5.1.6 (backport)
-* **bullseye-5.99-20200922** (same as **nightly**) is Debian bullseye (will be 11) + KiCad 5.99 (20200922). An unstable beta.
+* **10.4-5.1.6** is Debian 10.4 + KiCad 5.1.6 (backport)
+* **latest** is Debian 10.4 + KiCad 5.1.9 (backport)
+* **bullseye-6.0.0rc1-20211202** (same as **nightly**) is Debian bullseye (11.x) + KiCad 6.0.0 rc1 (20211202). A beta.
 
 The installations are minimal, but contains schematic and footprint libraries.
 The 3D models aren't included, they weight 10 times the size of these images.
@@ -30,7 +31,7 @@ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/home/$USER:/home/$USER:rw" \
-    setsoft/kicad_auto:10.3-5.1.5 kicad
+    setsoft/kicad_auto:latest kicad
 ```
 
 The following scripts are provided as examples:
