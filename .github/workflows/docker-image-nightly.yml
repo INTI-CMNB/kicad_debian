@@ -1,4 +1,4 @@
-name: Docker Hub upload (normal)
+name: Docker Hub upload (nightly)
 
 on:
   push:
