@@ -1,4 +1,4 @@
-name: Docker Hub upload (nightly)
+name: Docker Hub upload (KiCad 6)
 
 on:
   push:
