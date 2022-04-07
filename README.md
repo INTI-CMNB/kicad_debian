@@ -14,7 +14,8 @@ The current tags are:
 * **latest** is Debian 10.4 + KiCad 5.1.9 (backport)
 * **bullseye-6.0.0rc1-20211202** (same as **nightly**) is Debian bullseye (11.x) + KiCad 6.0.0 rc1 (20211202). A beta.
 * **ki6.0.0_Ubuntu21.10** is Ubuntu Impish (21.10) + KiCad 6.0.0
-* **ki6.0.2_Debian** (same as **ki6**) is Debian 11.2 + KiCad 6.0.2
+* **ki6.0.2_Debian** is Debian 11.2 + KiCad 6.0.2
+* **ki6.0.4_Debian** (same as **ki6**) is Debian 11.2 + KiCad 6.0.4
 
 The installations are minimal, but contains schematic and footprint libraries.
 The 3D models aren't included, they weight 10 times the size of these images.
