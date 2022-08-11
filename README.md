@@ -16,7 +16,8 @@ The current tags are:
 * **ki6.0.0_Ubuntu21.10** is Ubuntu Impish (21.10) + KiCad 6.0.0
 * **ki6.0.2_Debian** is Debian 11.2 + KiCad 6.0.2
 * **ki6.0.4_Debian** is Debian 11.2 + KiCad 6.0.4
-* **ki6.0.5_Debian** (same as **ki6**) is Debian 11.3 + KiCad 6.0.5
+* **ki6.0.5_Debian** is Debian 11.3 + KiCad 6.0.5
+* **ki6.0.6_Debian** (same as **ki6**) is Debian 11.4 + KiCad 6.0.6 (6.0.7 libs)
 
 The installations are minimal, but contains schematic and footprint libraries.
 The 3D models aren't included, they weight 10 times the size of these images.
