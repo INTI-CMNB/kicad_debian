@@ -12,7 +12,7 @@ The current tags are:
 * **10.3-5.1.5** is Debian 10.3 + KiCad 5.1.5 (backport)
 * **10.4-5.1.6** is Debian 10.4 + KiCad 5.1.6 (backport)
 * **10.4-5.1.9** is Debian 10.4 + KiCad 5.1.9 (backport)
-* **11.3-5.1.9** (same as **latest**) is Debian 11.3 + KiCad 5.1.9 (default stable)
+* **11.4-5.1.9** (same as **latest**) is Debian 11.4 + KiCad 5.1.9 (default stable)
 * **ki6.0.0_Ubuntu21.10** is Ubuntu Impish (21.10) + KiCad 6.0.0
 * **ki6.0.2_Debian** is Debian 11.2 + KiCad 6.0.2
 * **ki6.0.4_Debian** is Debian 11.2 + KiCad 6.0.4
