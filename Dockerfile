@@ -7,4 +7,4 @@ RUN     apt-get -y update && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* \
 	rm -rf /usr/share/icons/Adwaita/
-
+COPY kicad_3d_install.sh /usr/bin/
