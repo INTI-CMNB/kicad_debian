@@ -39,6 +39,7 @@ jobs:
         images: |
           setsoft/kicad_debian
           ghcr.io/${{ github.repository }}
+          ghcr.io/inti-cmnb/kicad5_debian
         tags: |
           type=raw,latest
 

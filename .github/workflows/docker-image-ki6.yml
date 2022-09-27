@@ -47,7 +47,10 @@ jobs:
       with:
         context: ki6
         push: true
-        tags: ${{ steps.meta.outputs.tags }}
+        tags: |
+          setsoft/kicad_debian:ki6
+          ghcr.io/inti-cmnb/kicad_debian:ki6
+          ghcr.io/inti-cmnb/kicad6_debian:latest
         labels: ${{ steps.meta.outputs.labels }}
 
     - name: Trigger KiCad-Auto image build
