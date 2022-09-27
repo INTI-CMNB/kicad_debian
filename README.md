@@ -4,12 +4,12 @@ Docker image for KiCad on Debian GNU/Linux.
 
 The main objetive is to use it as a base for [KiCad automation in CI/CD environments](https://github.com/INTI-CMNB/kicad_ci_test).
 
-The images are uploaded to [Docker Hub](https://hub.docker.com/repository/docker/setsoft/kicad_debian).
+The images are uploaded to [Docker Hub](https://hub.docker.com/repository/docker/setsoft/kicad_debian) and
+the GitHub projects [kicad5_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad5_debian) and
+[kicad6_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad6_debian): .
 
-The current tags are:
+The current tags at Docker Hub are:
 
-* **10.3-5.0.2** is Debian 10.3 + KiCad 5.0.2 (default stable)
-* **10.3-5.1.5** is Debian 10.3 + KiCad 5.1.5 (backport)
 * **10.4-5.1.6** is Debian 10.4 + KiCad 5.1.6 (backport)
 * **10.4-5.1.9** is Debian 10.4 + KiCad 5.1.9 (backport)
 * **11.4-5.1.9** (same as **latest**) is Debian 11.4 + KiCad 5.1.9 (default stable)
@@ -17,7 +17,10 @@ The current tags are:
 * **ki6.0.2_Debian** is Debian 11.2 + KiCad 6.0.2
 * **ki6.0.4_Debian** is Debian 11.2 + KiCad 6.0.4
 * **ki6.0.5_Debian** is Debian 11.3 + KiCad 6.0.5
-* **ki6.0.6_Debian** (same as **ki6**) is Debian 11.4 + KiCad 6.0.6 (6.0.7 libs)
+* **ki6.0.6_Debian** is Debian 11.4 + KiCad 6.0.6 (6.0.7 libs)
+* **ki6.0.7_Debian** (same as **ki6**) is Debian 11.5 + KiCad 6.0.7
+
+The tags at GitHub are simpler.
 
 The installations are minimal, but contains schematic and footprint libraries.
 The 3D models aren't included, they weight 10 times the size of these images.
