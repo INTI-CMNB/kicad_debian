@@ -18,7 +18,8 @@ The current tags at Docker Hub are:
 * **ki6.0.4_Debian** is Debian 11.2 + KiCad 6.0.4
 * **ki6.0.5_Debian** is Debian 11.3 + KiCad 6.0.5
 * **ki6.0.6_Debian** is Debian 11.4 + KiCad 6.0.6 (6.0.7 libs)
-* **ki6.0.7_Debian** (same as **ki6**) is Debian 11.5 + KiCad 6.0.7
+* **ki6.0.7_Debian** is Debian 11.5 + KiCad 6.0.7
+* **ki6.0.8_Debian** (same as **ki6**) is Debian 11.5 + KiCad 6.0.8
 
 The tags at GitHub are simpler.
 
