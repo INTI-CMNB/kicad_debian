@@ -19,6 +19,10 @@ jobs:
     - name: Check out the repo
       uses: actions/checkout@v3
 
+    - name: Copy download script
+      run: |
+        cp dl_deb.py nightly/
+
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:

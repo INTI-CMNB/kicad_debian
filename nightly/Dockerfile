@@ -4,7 +4,7 @@ LABEL Description="Minimal KiCad image based on Debian (nightly)"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
-COPY kicad_3d_install.sh /usr/bin/
+COPY kicad_3d_install.sh dl_deb.py /usr/bin/
 COPY *.list /
 RUN	echo "deb http://deb.debian.org/debian bullseye-backports main" >> /etc/apt/sources.list && \
 	apt-get -y update && \
