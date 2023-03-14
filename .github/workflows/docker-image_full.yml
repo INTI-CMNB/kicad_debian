@@ -1,4 +1,4 @@
-name: KiCad 5 Docker image
+name: KiCad 5 Full Docker image
 
 on:
   push:

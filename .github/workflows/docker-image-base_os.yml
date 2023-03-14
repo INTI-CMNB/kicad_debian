@@ -1,4 +1,4 @@
-name: Base OS Docker Hub/GH upload
+name: Base OS Docker image
 
 on:
   push:

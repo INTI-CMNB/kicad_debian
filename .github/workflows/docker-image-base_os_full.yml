@@ -1,4 +1,4 @@
-name: Base OS and Heavy tools Docker Hub/GH upload
+name: Base OS and Heavy tools Docker image
 
 on:
   push:

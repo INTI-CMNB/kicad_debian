@@ -1,4 +1,4 @@
-name: KiCad 6 Docker Hub upload
+name: KiCad 6 Docker image
 
 on:
   push:
