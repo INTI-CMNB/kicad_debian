@@ -1,6 +1,7 @@
 FROM debian:bullseye-slim
 MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
-LABEL Description="Debian 11 with tools for KiBot"
+LABEL Description="Debian with basic tools for KiBot"
+LABEL org.opencontainers.image.description "Debian with basic tools for KiBot"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC

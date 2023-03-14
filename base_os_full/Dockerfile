@@ -1,6 +1,7 @@
 FROM ghcr.io/inti-cmnb/base_os:latest
 MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
 LABEL Description="Debian with all tools for KiBot"
+LABEL org.opencontainers.image.description "Debian with all tools for KiBot"
 
 RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends flake8    \
