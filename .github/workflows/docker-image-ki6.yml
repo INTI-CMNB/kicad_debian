@@ -1,4 +1,4 @@
-name: Docker Hub upload (KiCad 6)
+name: KiCad 6 Docker Hub upload
 
 on:
   push:
@@ -19,10 +19,6 @@ jobs:
     - name: Check out the repo
       uses: actions/checkout@v3
 
-    - name: Copy download script
-      run: |
-        cp dl_deb.py ki6/
-
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
@@ -36,27 +32,12 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@v4
-      with:
-        images: |
-          setsoft/kicad_debian
-          ghcr.io/${{ github.repository }}
-        tags: |
-          type=raw,ki6
-
     - name: Build and push Docker image
-      uses: docker/build-push-action@v3
-      with:
-        context: ki6
-        push: true
-        tags: |
-          setsoft/kicad_debian:ki6
-          ghcr.io/inti-cmnb/kicad_debian:ki6
-          ghcr.io/inti-cmnb/kicad6_debian:latest
-        labels: ${{ steps.meta.outputs.labels }}
-
-    - name: Trigger KiCad-Auto image build
       run: |
-        curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_auto/dispatches --data '{"event_type": "build_k6"}'
+        cp kicad_version.py ki6/
+        cd ki6
+        ./build.sh
+
+#    - name: Trigger KiCad-Auto image build
+#      run: |
+#        curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_auto/dispatches --data '{"event_type": "build_k6"}'
