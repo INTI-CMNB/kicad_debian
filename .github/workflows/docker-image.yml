@@ -1,4 +1,4 @@
-name: Docker Hub upload (normal)
+name: KiCad 5 Docker image
 
 on:
   push:
@@ -32,25 +32,12 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@v4
-      with:
-        images: |
-          setsoft/kicad_debian
-          ghcr.io/${{ github.repository }}
-          ghcr.io/inti-cmnb/kicad5_debian
-        tags: |
-          type=raw,latest
-
     - name: Build and push Docker image
-      uses: docker/build-push-action@v3
-      with:
-        # context: tools/dev_image
-        push: true
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
-
-    - name: Trigger KiCad-Auto image build
       run: |
-        curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_auto/dispatches --data '{"event_type": "build_k5"}'
+        cp kicad_version.py ki5/
+        cd ki5
+        ./build.sh
+
+#    - name: Trigger KiCad-Auto image build
+#      run: |
+#        curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_auto/dispatches --data '{"event_type": "build_k5"}'
