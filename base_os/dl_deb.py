@@ -51,10 +51,13 @@ if __name__ == '__main__':
 
     parser.add_argument('project', help='The user/project to fetch')
     parser.add_argument('--skip', '-s', help='Skip files starting with', type=str, nargs='+', default=[])
+    parser.add_argument('--release', '-r', help='Release to download', type=str, default='latest')
     args = parser.parse_args()
 
-    url = 'https://api.github.com/repos/'+args.project+'/releases/latest'
-    print(f"Downloading releases of `{args.project}` ({url})")
+    if args.release != 'latest':
+        args.release = 'tags/'+args.release
+    url = 'https://api.github.com/repos/'+args.project+'/releases/'+args.release
+    print(f"Downloading `{args.release}` release of `{args.project}` ({url})")
     res = get_request(url)
     r = res.json()
     for a in r['assets']:
