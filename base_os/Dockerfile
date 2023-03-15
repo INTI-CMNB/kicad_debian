@@ -31,5 +31,6 @@ RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list  && \
 	echo '[protocol "file"]' >> /etc/gitconfig && \
 	echo '	allow = always' >> /etc/gitconfig && \
 	apt-get -y autoremove && \
-	rm -rf /var/lib/apt/lists/* /var/lib/dpkg/status-old
+	rm -rf /var/lib/apt/lists/* /var/lib/dpkg/status-old  && \
+	rm -rf /usr/share/icons/Adwaita/
 
