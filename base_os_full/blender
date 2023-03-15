@@ -1,0 +1,17 @@
+#!/bin/bash
+export USER_ID=$(id -u)
+export GROUP_ID=$(id -g)
+docker run --rm \
+  --user $USER_ID:$GROUP_ID \
+  --env DISPLAY=$DISPLAY \
+  --env NO_AT_BRIDGE=1 \
+  --workdir=$(pwd) \
+  --volume="/tmp:/tmp:rw" \
+  --volume="/etc/group:/etc/group:ro" \
+  --volume="/etc/timezone:/etc/timezone:ro" \
+  --volume="/home/$USER:/home/$USER:rw" \
+  --volume="/etc/passwd:/etc/passwd:ro" \
+  --volume="/etc/shadow:/etc/shadow:ro" \
+  --volume="/home/$USER:/home/$USER:rw" \
+  --device /dev/dri:/dev/dri \
+  ghcr.io/inti-cmnb/base_os_full:latest nice blender "$@"
