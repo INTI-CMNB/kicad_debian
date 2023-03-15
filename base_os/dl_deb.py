@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+# Copyright (c) 2023 Salvador E. Tropea
+# Copyright (c) 2023 Instituto Nacional de Tecnologïa Industrial
+# License: GPLv3
+# Simple Git Hub release downloader
 import argparse
 import json
 import os
 import requests
 import sys
+from urllib.parse import unquote
 
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0'
@@ -31,7 +36,7 @@ def get_request(url):
 
 
 def download(url, skip):
-    fname = os.path.basename(url)
+    fname = unquote(os.path.basename(url))
     for s in skip:
         if fname.startswith(s):
             print(f"Skipping `{fname}`")
