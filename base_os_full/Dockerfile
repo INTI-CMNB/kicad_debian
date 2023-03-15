@@ -13,6 +13,7 @@ RUN     apt-get update  && \
 	                                           unzip \
 	                                           zbar-tools \
 	                                           procps \
+	                                           fonts-dejavu \
 	                                           xlsx2csv && \
 	echo "Pull xdg-utils, but without recommendations" && \
 	apt-get -y install --no-install-recommends xdg-utils libxkbcommon0 && \
