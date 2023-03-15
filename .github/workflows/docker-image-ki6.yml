@@ -34,7 +34,6 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        cp kicad_version.py ki6/
         cd ki6
         ./build.sh
 
