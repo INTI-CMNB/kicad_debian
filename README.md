@@ -5,9 +5,9 @@ Docker image for KiCad on Debian GNU/Linux.
 The main objetive is to use it as a base for [KiBot (KiCad automation in CI/CD environments)](https://github.com/INTI-CMNB/KiBot).
 
 The images are uploaded to [Docker Hub](https://hub.docker.com/repository/docker/setsoft/kicad_debian) and
-the GitHub projects [kicad5_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad5_debian),
+the GitHub packages [kicad5_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad5_debian),
 [kicad6_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad6_debian) and
-[kicad7_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad7_debian): .
+[kicad7_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad7_debian).
 
 The current tags at GitHub are:
 
