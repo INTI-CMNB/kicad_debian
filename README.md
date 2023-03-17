@@ -5,28 +5,47 @@ Docker image for KiCad on Debian GNU/Linux.
 The main objetive is to use it as a base for [KiBot (KiCad automation in CI/CD environments)](https://github.com/INTI-CMNB/KiBot).
 
 The images are uploaded to [Docker Hub](https://hub.docker.com/repository/docker/setsoft/kicad_debian) and
-the GitHub projects [kicad5_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad5_debian) and
-[kicad6_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad6_debian): .
+the GitHub projects [kicad5_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad5_debian),
+[kicad6_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad6_debian) and
+[kicad7_debian](https://github.com/INTI-CMNB/kicad_debian/pkgs/container/kicad7_debian): .
 
-The current tags at Docker Hub are:
+The current tags at GitHub are:
 
-* **10.4-5.1.6** is Debian 10.4 + KiCad 5.1.6 (backport)
-* **10.4-5.1.9** is Debian 10.4 + KiCad 5.1.9 (backport)
-* **11.4-5.1.9** (same as **latest**) is Debian 11.4 + KiCad 5.1.9 (default stable)
-* **ki6.0.0_Ubuntu21.10** is Ubuntu Impish (21.10) + KiCad 6.0.0
-* **ki6.0.2_Debian** is Debian 11.2 + KiCad 6.0.2
-* **ki6.0.4_Debian** is Debian 11.2 + KiCad 6.0.4
-* **ki6.0.5_Debian** is Debian 11.3 + KiCad 6.0.5
-* **ki6.0.6_Debian** is Debian 11.4 + KiCad 6.0.6 (6.0.7 libs)
-* **ki6.0.7_Debian** is Debian 11.5 + KiCad 6.0.7
-* **ki6.0.8_Debian** (same as **ki6**) is Debian 11.5 + KiCad 6.0.8
+## KiCad 5
 
-The tags at GitHub are simpler.
+* **ghcr.io/inti-cmnb/kicad5_debian:5.1.6_d10.4** KiCad 5.1.6 (backport) on Debian 10.4
+* **ghcr.io/inti-cmnb/kicad5_debian:5.1.9_d10.4** KiCad 5.1.9 (backport) on Debian 10.4
+* **ghcr.io/inti-cmnb/kicad5_debian:5.1.9_d11.5** KiCad 5.1.9 on Debian 11.5
+* **ghcr.io/inti-cmnb/kicad5_debian:5.1.9_d11.6** KiCad 5.1.9 on Debian 11.6
 
-The installations are minimal, but contains schematic and footprint libraries.
-The 3D models aren't included, they weight 10 times the size of these images.
+## KiCad 6
 
-If you want to run interactively use:
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.0_u21.10** KiCad 6.0.0 on Ubuntu Impish (21.10)
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.2_d11.2** KiCad 6.0.2 (backport) on Debian 11.2
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.4_d11.3** KiCad 6.0.4 (backport) on Debian 11.3
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.5_d11.3** KiCad 6.0.5 (backport) on Debian 11.3
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.6_d11.4** KiCad 6.0.6 (backport) on Debian 11.4 (6.0.7 libs)
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.7_d11.5** KiCad 6.0.7 (backport) on Debian 11.5
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.8_d11.5** KiCad 6.0.8 (backport) on Debian 11.5
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.9_d11.5** KiCad 6.0.9 (backport) on Debian 11.5
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.10_d11.6** KiCad 6.0.10 (backport) on Debian 11.6
+* **ghcr.io/inti-cmnb/kicad6_debian:6.0.11_d11.6** KiCad 6.0.11 (backport) on Debian 11.6
+
+## KiCad 7
+
+* **ghcr.io/inti-cmnb/kicad7_debian:7.0.1.1_d11.6** KiCad 7.0.1.1 on Debian 11.6
+
+Note: 7.0.1.1 add the following patches to 7.0.1:
+- [Load the global fp-lib-table before running the Python DRC](https://gitlab.com/kicad/code/kicad/-/merge_requests/1536)
+- [Adds the missing plot formats to `kicad-cli sch export`](https://gitlab.com/kicad/code/kicad/-/merge_requests/1529)
+
+
+Originally the installations were minimal, but starting with 6.0.11 they contain the KiBot and other plug-in dependencies.
+This was done to reduce the differences between KiBot docker images.
+The 3D models aren't included, they weight 10 times the size of these images (makes them 2.5 bigger when compressed),
+a script called `kicad_3d_install.sh` is included, run it to install the libraries. Note that KiBot downloads the 3D models on-demand.
+
+If you want to run KiCad interactively from the image use:
 
 ```
 export USER_ID=$(id -u)
@@ -40,15 +59,18 @@ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/home/$USER:/home/$USER:rw" \
-    setsoft/kicad_auto:latest kicad
+    ghcr.io/inti-cmnb/kicad7_debian:latest kicad
 ```
 
-The following scripts are provided as examples:
+Various script examples are included.
 
-* [build.sh](https://github.com/INTI-CMNB/kicad_debian/blob/master/build.sh) creates the image from the [Dockerfile](https://github.com/INTI-CMNB/kicad_debian/blob/master/Dockerfile)
-* [run_kicad_same_user.sh](https://github.com/INTI-CMNB/kicad_debian/blob/master/run_kicad_same_user.sh) runs KiCad using the same user you are using in the host system, your home directory is shared with the docker image.
-* [run_shell_same_user.sh](https://github.com/INTI-CMNB/kicad_debian/blob/master/run_shell_same_user.sh) runs a shell using the same user you are using in the host system, your home directory is shared with the docker image.
+The images are used to create KiBot images that you can find in the [kicad_auto](https://github.com/INTI-CMNB/kicad_auto) project.
 
+Note that now we also have images tagged with `*_full` these images contains some heavy tools used by KiBot, they include:
 
+- Blender 3.4
+- Pandoc
+- LaTeX
+- Python test tools
 
-
+These images are the base for [kicad_auto_test](https://github.com/INTI-CMNB/kicad_auto_test) images (aka **kicad_auto_full**)
