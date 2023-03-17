@@ -42,6 +42,7 @@ Note: 7.0.1.1 add the following patches to 7.0.1:
 
 Originally the installations were minimal, but starting with 6.0.11 they contain the KiBot and other plug-in dependencies.
 This was done to reduce the differences between KiBot docker images.
+
 The 3D models aren't included, they weight 10 times the size of these images (makes them 2.5 bigger when compressed),
 a script called `kicad_3d_install.sh` is included, run it to install the libraries. Note that KiBot downloads the 3D models on-demand.
 
@@ -62,7 +63,7 @@ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     ghcr.io/inti-cmnb/kicad7_debian:latest kicad
 ```
 
-Various script examples are included.
+Various script examples are included in this repo.
 
 The images are used to create KiBot images that you can find in the [kicad_auto](https://github.com/INTI-CMNB/kicad_auto) project.
 
