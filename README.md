@@ -65,7 +65,11 @@ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
 
 Various script examples are included in this repo.
 
-The images are used to create KiBot images that you can find in the [kicad_auto](https://github.com/INTI-CMNB/kicad_auto) project.
+The images are used to create KiBot images that you can find in the [kicad_auto](https://github.com/INTI-CMNB/kicad_auto)
+and [kicad_auto_test](https://github.com/INTI-CMNB/kicad_auto_test) project. The relation between the images is as depicted in
+the following image:
+
+![Layers](Layers.png)
 
 Note that now we also have images tagged with `*_full` these images contains some heavy tools used by KiBot, they include:
 
