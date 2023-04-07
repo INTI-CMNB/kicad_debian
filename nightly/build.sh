@@ -1,6 +1,9 @@
 #!/bin/sh
-# KiCad nightly doesn't include the global symbol lib table:
-#cp /usr/share/kicad/template/sym-lib-table .
-#cp /usr/share/kicad/template/fp-lib-table .
-docker build --no-cache -f Dockerfile -t setsoft/kicad_debian:bullseye-7.0.0rc2-20230204 .
-docker build -f Dockerfile -t setsoft/kicad_debian:nightly .
+cp ../kicad_version.py .
+docker build -f Dockerfile -t ghcr.io/inti-cmnb/kicad_debian:nightly .
+TG1=`docker run --rm ghcr.io/inti-cmnb/kicad_debian:nightly kicad_version.py`
+TG2=`docker run --rm ghcr.io/inti-cmnb/kicad_debian:nightly /bin/bash -c "grep DISTRIB_CODENAME /etc/lsb-release | sed  s/DISTRIB_CODENAME=//" | tr -d '\n'`
+docker tag ghcr.io/inti-cmnb/kicad_debian:nightly ghcr.io/inti-cmnb/kicad_debian:${TG1}_${TG2}
+docker push ghcr.io/inti-cmnb/kicad_debian:${TG1}_${TG2}
+docker push ghcr.io/inti-cmnb/kicad_debian:nightly
+

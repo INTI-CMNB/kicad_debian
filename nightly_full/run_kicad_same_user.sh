@@ -1,7 +1,7 @@
 #!/bin/sh
 export USER_ID=$(id -u)
 export GROUP_ID=$(id -g)
-docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
+docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --user $USER_ID:$GROUP_ID \
     --env NO_AT_BRIDGE=1 \
     --workdir="/home/$USER" \
@@ -10,4 +10,4 @@ docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/home/$USER:/home/$USER:rw" \
-    setsoft/kicad_debian:nightly /bin/bash
+    ghcr.io/inti-cmnb/kicad_debian:nightly_full kicad

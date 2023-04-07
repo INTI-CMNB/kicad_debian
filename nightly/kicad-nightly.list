@@ -1,3 +1,0 @@
-deb https://debian.sur5r.net/kicad-nightly bullseye main
-# deb http://ppa.launchpad.net/kicad/kicad-dev-nightly/ubuntu hirsute main
-# deb-src http://ppa.launchpad.net/kicad/kicad-dev-nightly/ubuntu groovy main

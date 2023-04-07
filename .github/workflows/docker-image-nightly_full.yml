@@ -1,11 +1,11 @@
-name: KiCad nightly Docker image
+name: KiCad Full nightly Docker image
 
 on:
   push:
     tags:
-      - n*
+      - nf*
   repository_dispatch:
-    types: [build_nightly]
+    types: [build_nightlyf]
 
 jobs:
   push_to_registry:
@@ -34,9 +34,9 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        cd nightly
+        cd nightly_full
         ./build.sh
 
     - name: Trigger KiCad-Auto image build
       run: |
-        curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_auto/dispatches --data '{"event_type": "build_nightlyp"}'
+        curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_auto_test/dispatches --data '{"event_type": "build_nightlyp"}'
