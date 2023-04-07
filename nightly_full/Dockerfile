@@ -9,9 +9,7 @@ ENV LD_LIBRARY_PATH="/usr/lib/kicad-nightly/lib/x86_64-linux-gnu/:/usr/lib/kicad
 ENV KICAD_PATH="/usr/share/kicad-nightly"
 ENV PYTHONPATH="/usr/lib/kicad-nightly/local/lib/python3.10/dist-packages"
 
-RUN \
-    --mount=type=cache,target=/var/cache/apt,id=apt \
-	apt-get update && \
+RUN     apt-get update && \
 	apt-get install -y software-properties-common && \
 	add-apt-repository ppa:kicad/kicad-dev-nightly && \
 	apt-get update && \
