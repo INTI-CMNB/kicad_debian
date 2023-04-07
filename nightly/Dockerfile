@@ -9,9 +9,6 @@ ENV LD_LIBRARY_PATH="/usr/lib/kicad-nightly/lib/x86_64-linux-gnu/:/usr/lib/kicad
 ENV KICAD_PATH="/usr/share/kicad-nightly"
 ENV PYTHONPATH="/usr/lib/kicad-nightly/local/lib/python3.10/dist-packages"
 RUN     apt-get update && \
-	apt-get install -y software-properties-common && \
-	add-apt-repository ppa:kicad/kicad-dev-nightly && \
-	apt-get update && \
 	apt-get -y install --no-install-recommends kicad-nightly kicad-nightly-templates kicad-nightly-libraries kicad-nightly-symbols kicad-nightly-footprints && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old && \
