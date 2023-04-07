@@ -17,4 +17,7 @@ RUN     apt-get update && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old && \
 	rm -rf /usr/share/icons/Adwaita/ /*.deb
 COPY kicad_3d_install.sh kicad_version.py /usr/bin/
-
+# Make the nightly the main KiCad
+RUN     ln -s /usr/bin/kicad-cli-nightly /usr/bin/kicad-cli && \
+	ln -s /usr/bin/pcbnew-nightly /usr/bin/pcbnew && \
+	ln -s /usr/bin/eeschema-nightly /usr/bin/eeschema
