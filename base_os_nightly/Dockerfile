@@ -10,10 +10,12 @@ RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends git && \
 	apt-get -y install --no-install-recommends make rar bzip2 librsvg2-bin ghostscript && \
 	apt-get -y install --no-install-recommends imagemagick python3-qrcodegen poppler-utils python3-requests python3-xlsxwriter && \
+	echo "KiCad 7.99 needs backported python3-wxgtk4.0"
+	apt-get -y install --no-install-recommends -t kinetic-backports python3-wxgtk4.0  && \
 	echo "KiCost Digi-Key plugin dependencies"  && \
 	apt -y install --no-install-recommends python3-certifi python3-dateutil python3-inflection python3-openssl python3-pkg-resources python3-requests python3-six python3-tldextract python3-urllib3 && \
 	echo "KiCost dependencies"  && \
-	apt -y install --no-install-recommends python3-bs4 python3-colorama python3-lxml python3-requests python3-tqdm python3-validators python3-wxgtk4.0 python3-yaml && \
+	apt -y install --no-install-recommends python3-bs4 python3-colorama python3-lxml python3-requests python3-tqdm python3-validators python3-yaml && \
 	echo "KiKit dependencies"  && \
 	apt -y install --no-install-recommends python3-click python3-commentjson python3-markdown2 python3-numpy python3-shapely openscad  && \
 	echo "KiAuto dependencies"  && \
