@@ -6,6 +6,8 @@ on:
       - nf*
   repository_dispatch:
     types: [build_nightlyf]
+  schedule:
+    - cron: '43 5 * * 1-5'
 
 jobs:
   push_to_registry:
