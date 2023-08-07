@@ -1,7 +1,7 @@
-FROM ubuntu:kinetic
+FROM ubuntu:lunar
 MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
-LABEL Description="Ubuntu Kinetic with basic tools for KiBot"
-LABEL org.opencontainers.image.description "Ubuntu Kinetic with basic tools for KiBot"
+LABEL Description="Ubuntu Lunar with basic tools for KiBot"
+LABEL org.opencontainers.image.description "Ubuntu Lunar with basic tools for KiBot"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
