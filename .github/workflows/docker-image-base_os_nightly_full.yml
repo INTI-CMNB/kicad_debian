@@ -1,4 +1,4 @@
-name: Base OS and Heavy tools Docker image
+name: Base OS and Heavy tools (nightly) Docker image
 
 on:
   push:

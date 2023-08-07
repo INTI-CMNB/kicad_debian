@@ -1,4 +1,4 @@
-name: Base OS Docker image
+name: Base OS Docker image (nightly)
 
 on:
   push:
