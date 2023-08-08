@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 ENV LD_LIBRARY_PATH="/usr/lib/kicad-nightly/lib/x86_64-linux-gnu/:/usr/lib/kicad-nightly/lib/"
 ENV KICAD_PATH="/usr/share/kicad-nightly"
-ENV PYTHONPATH="/usr/lib/kicad-nightly/local/lib/python3.10/dist-packages"
+ENV PYTHONPATH="/usr/lib/kicad-nightly/local/lib/python3.11/dist-packages"
 
 RUN     apt-get update && \
 	apt-get -y install --no-install-recommends kicad-nightly kicad-nightly-templates kicad-nightly-libraries kicad-nightly-symbols kicad-nightly-footprints && \
