@@ -79,5 +79,6 @@ Note that now we also have images tagged with `*_full` these images contains som
 - Pandoc
 - LaTeX
 - Python test tools
+- Git for LFS
 
 These images are the base for [kicad_auto_test](https://github.com/INTI-CMNB/kicad_auto_test) images (aka **kicad_auto_full**)

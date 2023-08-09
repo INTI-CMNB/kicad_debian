@@ -23,7 +23,7 @@ RUN     apt-get update  && \
 	dl_deb.py set-soft/coveralls-python && \
 	apt -y install --no-install-recommends ./*.deb && \
 	rm *.deb && \
-	apt-get -y install --no-install-recommends xz-utils wget && \
+	apt-get -y install --no-install-recommends xz-utils wget git-lfs && \
 	wget https://mirrors.ocf.berkeley.edu/blender/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz && \
 	tar xvf blender-3.4.1-linux-x64.tar.xz --strip-components=1 -C /usr/bin/ && \
 	rm blender-3.4.1-linux-x64.tar.xz && \
