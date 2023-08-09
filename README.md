@@ -34,8 +34,10 @@ The current tags at GitHub are:
 ## KiCad 7
 
 * **ghcr.io/inti-cmnb/kicad7_debian:7.0.1.1_d11.6** KiCad 7.0.1.1 on Debian 11.6
+* **ghcr.io/inti-cmnb/kicad7_debian:7.0.2.1_d11.6** KiCad 7.0.2.1 on Debian 11.6
+* **ghcr.io/inti-cmnb/kicad7_debian:7.0.5.1_d11.6** KiCad 7.0.5.1 on Debian 11.6
 
-Note: 7.0.1.1 add the following patches to 7.0.1:
+Note: 7.0.1.1 adds the following patches to 7.0.1:
 - [Load the global fp-lib-table before running the Python DRC](https://gitlab.com/kicad/code/kicad/-/merge_requests/1536)
 - [Adds the missing plot formats to `kicad-cli sch export`](https://gitlab.com/kicad/code/kicad/-/merge_requests/1529)
 
