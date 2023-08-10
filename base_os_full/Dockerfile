@@ -18,23 +18,14 @@ RUN     apt-get update  && \
 	echo "Pull xdg-utils, but without recommendations" && \
 	apt-get -y install --no-install-recommends xdg-utils libxkbcommon0 && \
 	apt-get -y install pandoc texlive-latex-base texlive-latex-recommended && \
-	apt-get -y install -t bullseye-backports curl && \
-	apt-get -y install python3-coverage && \
+	apt-get -y install curl python3-coverage && \
 	dl_deb.py set-soft/coveralls-python && \
-	apt -y install --no-install-recommends ./*.deb && \
+	apt-get -y install --no-install-recommends ./*.deb && \
 	rm *.deb && \
-	apt-get -y install --no-install-recommends xz-utils wget git-lfs && \
-	wget https://mirrors.ocf.berkeley.edu/blender/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz && \
-	tar xvf blender-3.4.1-linux-x64.tar.xz --strip-components=1 -C /usr/bin/ && \
-	rm blender-3.4.1-linux-x64.tar.xz && \
-	apt-get -y remove wget xz-utils && \
+	apt-get -y install --no-install-recommends wget git-lfs blender && \
+	echo "Install plug-in deps: pillow and skia-python (pip, numpy, etc.)" && \
+	apt-get -y install --no-install-recommends python3-pil python3-pybind11 && \
+	python3 -m pip install --break-system-packages skia-python && \
 	apt-get -y autoremove && \
-	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
-RUN     echo "Install plug-in deps: pillow and skia-python (pip, numpy, etc.)" && \
-	curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-	/usr/bin/3.4/python/bin/python3.10 get-pip.py && \
-	/usr/bin/3.4/python/bin/python3.10 -m pip install numpy==1.23.1 && \
-	/usr/bin/3.4/python/bin/python3.10 -m pip install pillow && \
-	/usr/bin/3.4/python/bin/python3.10 -m pip install skia-python && \
-	rm -rf get-pip.py && \
+	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old && \
 	rm -rf /root/.cache/pip/
