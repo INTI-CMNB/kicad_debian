@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
 LABEL Description="Debian with basic tools for KiBot"
 LABEL org.opencontainers.image.description "Debian with basic tools for KiBot"
@@ -8,10 +8,8 @@ ENV TZ=Etc/UTC
 COPY dl_deb.py /usr/bin/
 COPY debconf.conf /etc/
 RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list  && \
-	echo "deb http://deb.debian.org/debian bullseye-backports main" >> /etc/apt/sources.list && \
 	apt-get update  && \
-	apt-get -y install --no-install-recommends -t bullseye-backports git && \
-	apt-get -y install --no-install-recommends make rar bzip2 librsvg2-bin ghostscript && \
+	apt-get -y install --no-install-recommends git make rar bzip2 librsvg2-bin ghostscript && \
 	apt-get -y install --no-install-recommends imagemagick python3-qrcodegen poppler-utils python3-requests python3-xlsxwriter && \
 	echo "KiCost Digi-Key plugin dependencies"  && \
 	apt -y install --no-install-recommends python3-certifi python3-dateutil python3-inflection python3-openssl python3-pkg-resources python3-requests python3-six python3-tldextract python3-urllib3 && \
