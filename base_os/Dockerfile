@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 COPY dl_deb.py /usr/bin/
 COPY debconf.conf /etc/
-RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list  && \
+RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debian.sources  && \
 	apt-get update  && \
 	apt-get -y install --no-install-recommends git make rar bzip2 librsvg2-bin ghostscript && \
 	apt-get -y install --no-install-recommends imagemagick python3-qrcodegen poppler-utils python3-requests python3-xlsxwriter && \
