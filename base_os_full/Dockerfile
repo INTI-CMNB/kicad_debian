@@ -23,6 +23,7 @@ RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends ./*.deb && \
 	rm *.deb && \
 	apt-get -y install --no-install-recommends wget git-lfs blender && \
+	apt-get -y install odbcinst libodbc1 libsqliteodbc && \
 	echo "Install plug-in deps: pillow and skia-python (pip, numpy, etc.)" && \
 	apt-get -y install --no-install-recommends python3-pil python3-pybind11 && \
 	python3 -m pip install --break-system-packages skia-python && \
