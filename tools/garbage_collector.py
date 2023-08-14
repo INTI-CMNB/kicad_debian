@@ -5,7 +5,8 @@ import sys
 
 
 ORG = 'INTI-CMNB'
-PKGS = {'base_os', 'base_os_full', 'kicad7_debian'}
+PKGS = {'base_os', 'base_os_full', 'kicad_debian', 'kicad5_debian',
+        'kicad6_debian', 'kicad7_debian'}
 PKG = 'base_os'
 HEADER = {'Accept': 'application/vnd.github+json',
           'Authorization': 'Bearer '+sys.argv[1],
