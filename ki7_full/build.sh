@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 cp ../kicad_version.py .
 cp ../kicad-7.0-releases.gpg .
 docker build -f Dockerfile -t ghcr.io/inti-cmnb/kicad7_debian:latest_full .
