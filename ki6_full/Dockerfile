@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 COPY kicad_3d_install.sh kicad_version.py /usr/bin/
 RUN     apt-get -y update && \
-	apt-get -y install -t bullseye-backports --no-install-recommends kicad kicad-symbols kicad-templates kicad-footprints && \
+	apt-get -y install --no-install-recommends kicad kicad-symbols kicad-templates kicad-footprints && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old && \
 	rm -rf /usr/share/icons/Adwaita/
