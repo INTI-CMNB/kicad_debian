@@ -1,4 +1,4 @@
-FROM ghcr.io/inti-cmnb/base_os:latest
+FROM ghcr.io/inti-cmnb/base_os:d11.6
 MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
 LABEL Description="KiCad 5 on Debian + base tool"
 LABEL org.opencontainers.image.description "KiCad 5 on Debian + tool dependencies"
