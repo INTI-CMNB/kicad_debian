@@ -10,7 +10,7 @@ COPY debconf.conf /etc/
 RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debian.sources  && \
 	apt-get update  && \
 	apt-get -y install --no-install-recommends git make rar bzip2 librsvg2-bin ghostscript && \
-	apt-get -y install --no-install-recommends imagemagick python3-qrcodegen poppler-utils python3-requests python3-xlsxwriter && \
+	apt-get -y install --no-install-recommends imagemagick python3-qrcodegen poppler-utils python3-requests python3-xlsxwriter python3-mistune && \
 	echo "KiCost Digi-Key plugin dependencies"  && \
 	apt -y install --no-install-recommends python3-certifi python3-dateutil python3-inflection python3-openssl python3-pkg-resources python3-requests python3-six python3-tldextract python3-urllib3 && \
 	echo "KiCost dependencies"  && \
