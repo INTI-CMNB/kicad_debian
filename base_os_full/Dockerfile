@@ -14,7 +14,7 @@ RUN     apt-get update  && \
 	                                           zbar-tools \
 	                                           procps \
 	                                           fonts-dejavu \
-	                                           xlsx2csv && \
+	                                           xlsx2csv gnome-themes-extra-data && \
 	echo "Pull xdg-utils, but without recommendations" && \
 	apt-get -y install pandoc texlive-latex-base texlive-latex-recommended && \
 	echo "ODBC support (for KiCad 7+) and GIT LFS" && \
