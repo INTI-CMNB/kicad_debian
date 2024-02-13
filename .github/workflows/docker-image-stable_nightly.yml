@@ -6,8 +6,8 @@ on:
       - sn*
   repository_dispatch:
     types: [build_stable_nightly]
-  schedule:
-    - cron: '33 5 * * 1-5'
+#  schedule:
+#    - cron: '33 5 * * 1-5'
 
 jobs:
   push_to_registry:

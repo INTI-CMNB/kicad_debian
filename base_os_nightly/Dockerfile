@@ -1,25 +1,21 @@
-FROM ubuntu:lunar
+FROM kicad/kicad:nightly
 MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
-LABEL Description="Ubuntu Lunar with basic tools for KiBot"
-LABEL org.opencontainers.image.description "Ubuntu Lunar with basic tools for KiBot"
+LABEL Description="Debian with basic tools for KiBot"
+LABEL org.opencontainers.image.description "Debian with basic tools for KiBot"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 COPY dl_deb.py /usr/bin/
-RUN     apt-get update  && \
-	echo "We need the PPA for the backported python3-wxgtk4.0" && \
-	apt-get install -y software-properties-common && \
-	add-apt-repository ppa:kicad/kicad-dev-nightly && \
-	apt-get update && \
-	echo "KiCad 7.99 needs backported python3-wxgtk4.0" && \
-	apt-get -y install --no-install-recommends python3-wxgtk4.0  && \
-	apt-get -y install --no-install-recommends git && \
-	apt-get -y install --no-install-recommends make rar bzip2 librsvg2-bin ghostscript && \
-	apt-get -y install --no-install-recommends imagemagick python3-qrcodegen poppler-utils python3-requests python3-xlsxwriter && \
+COPY debconf.conf /etc/
+USER root
+RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debian.sources  && \
+	apt-get update  && \
+	apt-get -y install --no-install-recommends git make rar bzip2 librsvg2-bin ghostscript && \
+	apt-get -y install --no-install-recommends imagemagick python3-qrcodegen poppler-utils python3-requests python3-xlsxwriter python3-mistune && \
 	echo "KiCost Digi-Key plugin dependencies"  && \
 	apt -y install --no-install-recommends python3-certifi python3-dateutil python3-inflection python3-openssl python3-pkg-resources python3-requests python3-six python3-tldextract python3-urllib3 && \
 	echo "KiCost dependencies"  && \
-	apt -y install --no-install-recommends python3-bs4 python3-colorama python3-lxml python3-requests python3-tqdm python3-validators python3-yaml && \
+	apt -y install --no-install-recommends python3-bs4 python3-colorama python3-lxml python3-requests python3-tqdm python3-validators python3-wxgtk4.0 python3-yaml && \
 	echo "KiKit dependencies"  && \
 	apt -y install --no-install-recommends python3-click python3-commentjson python3-markdown2 python3-numpy python3-shapely openscad  && \
 	echo "KiAuto dependencies"  && \

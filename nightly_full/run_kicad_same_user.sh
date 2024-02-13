@@ -10,4 +10,5 @@ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/home/$USER:/home/$USER:rw" \
-    ghcr.io/inti-cmnb/kicad_debian:nightly_full kicad-nightly
+    ghcr.io/inti-cmnb/kicad_debian:nightly_full kicad
+#    kicad/kicad:nightly kicad

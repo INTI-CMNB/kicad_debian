@@ -6,6 +6,8 @@ on:
       - bon_*
   repository_dispatch:
     types: [build_base_os_nightly]
+  schedule:
+    - cron: '43 5 * * 1-5'
 
 jobs:
   push_to_registry:
@@ -40,4 +42,4 @@ jobs:
     - name: Trigger Base OS full image build
       run: |
         curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_debian/dispatches --data '{"event_type": "build_base_os_nightly_full"}'
-        curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_debian/dispatches --data '{"event_type": "build_nightly"}'
+        # curl -X POST -u "${{secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" https://api.github.com/repos/INTI-CMNB/kicad_debian/dispatches --data '{"event_type": "build_nightly"}'
