@@ -10,7 +10,7 @@ RUN     touch /etc/apt/sources.list && \
 	cp /etc/apt/sources.list /etc/apt/sources.list.ok && \
 	echo "deb http://deb.debian.org/debian bookworm-backports main" >> /etc/apt/sources.list && \
 	apt-get -y update && \
-	apt-get install -y --no-install-recommends kicad kicad-footprints kicad-symbols kicad-templates && \
+	apt-get install -y -t bookworm-backports --no-install-recommends kicad kicad-footprints kicad-symbols kicad-templates && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old && \
 	rm -rf /usr/share/icons/Adwaita/ /*.deb
