@@ -36,6 +36,7 @@ jobs:
       run: |
         cd base_os_nightly_full
         ./build.sh
+        ./push.sh
 
     - name: Trigger Base OS full image build
       run: |

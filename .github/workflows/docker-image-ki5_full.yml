@@ -36,6 +36,7 @@ jobs:
       run: |
         cd ki5_full
         ./build.sh
+        ./push.sh
 
     - name: Trigger KiCad-Auto image build
       run: |

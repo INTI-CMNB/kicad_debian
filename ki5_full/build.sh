@@ -8,8 +8,3 @@ TG3=b`docker run --rm ghcr.io/inti-cmnb/kicad5_debian:latest_full /bin/bash -c "
 docker tag ghcr.io/inti-cmnb/kicad5_debian:latest_full ghcr.io/inti-cmnb/kicad_debian:${TG1}-${TG2}-${TG3}
 docker tag ghcr.io/inti-cmnb/kicad5_debian:latest_full ghcr.io/inti-cmnb/kicad_debian:latest_full
 docker tag ghcr.io/inti-cmnb/kicad5_debian:latest_full ghcr.io/inti-cmnb/kicad5_debian:${TG1}_${TG2}_${TG3}
-docker push ghcr.io/inti-cmnb/kicad_debian:${TG1}-${TG2}-${TG3}
-docker push ghcr.io/inti-cmnb/kicad_debian:latest_full
-docker push ghcr.io/inti-cmnb/kicad5_debian:${TG1}_${TG2}_${TG3}
-docker push ghcr.io/inti-cmnb/kicad5_debian:latest_full
-

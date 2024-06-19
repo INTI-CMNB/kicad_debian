@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-cp ../kicad-7.0-releases.gpg .
 cp ../kicad_version.py .
 docker build -f Dockerfile -t ghcr.io/inti-cmnb/kicad7_debian:latest .
 TG1=`docker run --rm ghcr.io/inti-cmnb/kicad7_debian:latest kicad_version.py`
@@ -11,11 +10,3 @@ docker tag ghcr.io/inti-cmnb/kicad7_debian:latest setsoft/kicad_debian:ki${TG1}_
 docker tag ghcr.io/inti-cmnb/kicad7_debian:latest setsoft/kicad_debian:ki7
 docker tag ghcr.io/inti-cmnb/kicad7_debian:latest ghcr.io/inti-cmnb/kicad7_debian:${TG1}
 docker tag ghcr.io/inti-cmnb/kicad7_debian:latest ghcr.io/inti-cmnb/kicad7_debian:${TG1}_${TG2}
-docker push ghcr.io/inti-cmnb/kicad_debian:ki${TG1}_Debian
-docker push ghcr.io/inti-cmnb/kicad_debian:ki7
-docker push setsoft/kicad_debian:ki${TG1}_Debian
-docker push setsoft/kicad_debian:ki7
-docker push ghcr.io/inti-cmnb/kicad7_debian:${TG1}
-docker push ghcr.io/inti-cmnb/kicad7_debian:${TG1}_${TG2}
-docker push ghcr.io/inti-cmnb/kicad7_debian:latest
-

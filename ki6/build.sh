@@ -10,11 +10,3 @@ docker tag ghcr.io/inti-cmnb/kicad6_debian:latest setsoft/kicad_debian:ki${TG1}_
 docker tag ghcr.io/inti-cmnb/kicad6_debian:latest setsoft/kicad_debian:ki6
 docker tag ghcr.io/inti-cmnb/kicad6_debian:latest ghcr.io/inti-cmnb/kicad6_debian:${TG1}
 docker tag ghcr.io/inti-cmnb/kicad6_debian:latest ghcr.io/inti-cmnb/kicad6_debian:${TG1}_${TG2}
-docker push ghcr.io/inti-cmnb/kicad_debian:ki${TG1}_Debian
-docker push ghcr.io/inti-cmnb/kicad_debian:ki6
-docker push setsoft/kicad_debian:ki${TG1}_Debian
-docker push setsoft/kicad_debian:ki6
-docker push ghcr.io/inti-cmnb/kicad6_debian:${TG1}
-docker push ghcr.io/inti-cmnb/kicad6_debian:${TG1}_${TG2}
-docker push ghcr.io/inti-cmnb/kicad6_debian:latest
-

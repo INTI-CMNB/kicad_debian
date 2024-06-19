@@ -38,6 +38,7 @@ jobs:
       run: |
         cd nightly
         ./build.sh
+        ./push.sh
 
     - name: Trigger KiCad-Auto image build
       run: |
