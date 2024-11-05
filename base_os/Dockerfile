@@ -16,7 +16,9 @@ RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debi
 	echo "KiCost dependencies"  && \
 	apt -y install --no-install-recommends python3-bs4 python3-colorama python3-lxml python3-requests python3-tqdm python3-validators python3-wxgtk4.0 python3-yaml && \
 	echo "KiKit dependencies"  && \
-	apt -y install --no-install-recommends python3-click python3-commentjson python3-markdown2 python3-numpy python3-shapely openscad  && \
+	apt -y install --no-install-recommends python3-click python3-commentjson python3-markdown2 python3-numpy openscad  && \
+	echo "Nasty patch to support tightframe on KiKit panelization" && \
+	pip install --break-system-packages shapely && \
 	echo "KiAuto dependencies"  && \
 	apt -y install --no-install-recommends python3-psutil python3-xvfbwrapper recordmydesktop xdotool xsltproc xclip  && \
 	echo "KiDiff dependencies"  && \
