@@ -1,7 +1,7 @@
-FROM kicad/kicad:8.0
-MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
+FROM kicad/kicad:nightly
+LABEL Maintainer="Salvador E. Tropea <stropea@inti.gob.ar>"
 LABEL Description="Debian with basic tools for KiBot"
-LABEL org.opencontainers.image.description "Debian with basic tools for KiBot"
+LABEL org.opencontainers.image.description="Debian with basic tools for KiBot"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
@@ -17,7 +17,11 @@ RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debi
 	echo "KiCost dependencies"  && \
 	apt -y install --no-install-recommends python3-bs4 python3-colorama python3-lxml python3-requests python3-tqdm python3-validators python3-wxgtk4.0 python3-yaml && \
 	echo "KiKit dependencies"  && \
-	apt -y install --no-install-recommends python3-click python3-commentjson python3-markdown2 python3-numpy python3-shapely openscad  && \
+	apt -y install --no-install-recommends python3-click python3-commentjson python3-markdown2 python3-numpy openscad  && \
+	echo "Nasty patch to support tightframe on KiKit panelization" && \
+	apt -y install python3-pip  && \
+	pip install --break-system-packages shapely && \
+	apt -y remove python3-pip  && \
 	echo "KiAuto dependencies"  && \
 	apt -y install --no-install-recommends python3-psutil python3-xvfbwrapper recordmydesktop xdotool xsltproc xclip  && \
 	echo "KiDiff dependencies"  && \
@@ -33,3 +37,7 @@ RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debi
 	rm -rf /var/lib/apt/lists/* /var/lib/dpkg/status-old  && \
 	rm -rf /usr/share/icons/Adwaita/
 
+# RUN     apt-get update  && \
+# 	apt-get -y install --no-install-recommends libnng1 && \
+# 	apt-get -y autoremove && \
+# 	rm -rf /var/lib/apt/lists/* /var/lib/dpkg/status-old
