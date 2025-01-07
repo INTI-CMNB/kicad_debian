@@ -8,5 +8,5 @@ ENV TZ=Etc/UTC
 
 COPY kicad_3d_install.sh kicad_version.py /usr/bin/
 COPY images.tar.gz /usr/share/kicad/resources/
-COPY pcm.v1.schema.json /usr/share/kicad/schemas/
+COPY pcm.v1.schema.json api.v1.schema.json /usr/share/kicad/schemas/
 COPY fp-lib-table sym-lib-table /usr/share/kicad/template/
