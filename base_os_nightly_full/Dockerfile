@@ -31,9 +31,9 @@ RUN     apt-get update  && \
 RUN	echo "Install Blender" && \
 	apt-get update  && \
 	apt-get -y install --no-install-recommends xz-utils wget && \
-	wget https://mirrors.ocf.berkeley.edu/blender/release/Blender4.2/blender-4.2.3-linux-x64.tar.xz && \
-	tar xvf blender-4.2.3-linux-x64.tar.xz --strip-components=1 -C /usr/bin/ && \
-	rm blender-4.2.3-linux-x64.tar.xz && \
+	wget https://mirrors.ocf.berkeley.edu/blender/release/Blender4.2/blender-4.2.4-linux-x64.tar.xz && \
+	tar xvf blender-4.2.4-linux-x64.tar.xz --strip-components=1 -C /usr/bin/ && \
+	rm blender-4.2.4-linux-x64.tar.xz && \
 	apt-get -y remove xz-utils wget && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
