@@ -38,15 +38,16 @@ RUN	echo "Install Blender" && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old
 
-RUN	echo "Install blender plug-in deps: pillow and skia-python (pip, numpy, etc.)" && \
-	curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-	/usr/bin/4.2/python/bin/python3.11 get-pip.py && \
-	/usr/bin/4.2/python/bin/python3.11 -m pip install --break-system-packages numpy && \
-	/usr/bin/4.2/python/bin/python3.11 -m pip install --break-system-packages pillow && \
-	/usr/bin/4.2/python/bin/python3.11 -m pip install --break-system-packages skia-python && \
-	/usr/bin/4.2/python/bin/python3.11 -m pip install --break-system-packages git+https://github.com/30350n/error_helper.git@1.1 && \
-	rm -rf get-pip.py && \
-	rm -rf /root/.cache/pip/
+# Should be fixed in 4.2.4:
+# RUN	echo "Install blender plug-in deps: pillow and skia-python (pip, numpy, etc.)" && \
+# 	curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+# 	/usr/bin/4.2/python/bin/python3.11 get-pip.py && \
+# 	/usr/bin/4.2/python/bin/python3.11 -m pip install --break-system-packages numpy && \
+# 	/usr/bin/4.2/python/bin/python3.11 -m pip install --break-system-packages pillow && \
+# 	/usr/bin/4.2/python/bin/python3.11 -m pip install --break-system-packages skia-python && \
+# 	/usr/bin/4.2/python/bin/python3.11 -m pip install --break-system-packages git+https://github.com/30350n/error_helper.git@1.1 && \
+# 	rm -rf get-pip.py && \
+# 	rm -rf /root/.cache/pip/
 
 RUN	echo "Install blender plug-in" && \
 	blender --online-mode --command extension sync && \
