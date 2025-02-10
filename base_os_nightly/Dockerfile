@@ -33,8 +33,6 @@ RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debi
 	echo "	directory = *" >> /etc/gitconfig && \
 	echo '[protocol "file"]' >> /etc/gitconfig && \
 	echo '	allow = always' >> /etc/gitconfig && \
-	echo "Fix pcbnew.py violation of user preference" && \
-	sed -i '/warnings\.filterwarnings/d' /usr/lib/python3/dist-packages/pcbnew.py && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/lib/dpkg/status-old  && \
 	rm -rf /usr/share/icons/Adwaita/
