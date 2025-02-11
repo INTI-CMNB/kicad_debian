@@ -51,7 +51,7 @@ RUN	echo "Install Blender" && \
 
 RUN	echo "Install blender plug-in" && \
 	blender --online-mode --command extension sync && \
-	blender --online-mode --command extension install --enable pcb3d_importer && \
-	sed '/^wheels =/d' /root/.config/blender/4.2/extensions/blender_org/pcb3d_importer/blender_manifest.toml  && \
-	rm -rf /root/.config/blender/4.2/extensions/blender_org/pcb3d_importer/wheels/
+	blender --online-mode --command extension install --enable pcb3d_importer
+#	sed -i '/^wheels =/d' /root/.config/blender/4.2/extensions/blender_org/pcb3d_importer/blender_manifest.toml  && \
+#	rm -rf /root/.config/blender/4.2/extensions/blender_org/pcb3d_importer/wheels/
 
