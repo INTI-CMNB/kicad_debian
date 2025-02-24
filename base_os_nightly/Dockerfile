@@ -1,4 +1,4 @@
-FROM kicad/kicad:nightly
+FROM kicad/kicad:9.0
 LABEL Maintainer="Salvador E. Tropea <stropea@inti.gob.ar>"
 LABEL Description="Debian with basic tools for KiBot"
 LABEL org.opencontainers.image.description="Debian with basic tools for KiBot"

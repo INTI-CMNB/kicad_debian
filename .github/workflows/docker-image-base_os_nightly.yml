@@ -6,8 +6,8 @@ on:
       - bon_*
   repository_dispatch:
     types: [build_base_os_nightly]
-  schedule:
-    - cron: '43 5 * * 1-5'
+#  schedule:
+#    - cron: '43 5 * * 1-5'
 
 jobs:
   push_to_registry:
