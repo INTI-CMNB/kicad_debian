@@ -51,6 +51,11 @@ RUN	echo "Install Blender" && \
 RUN	echo "Install blender plug-in" && \
 	blender --online-mode --command extension sync && \
 	blender --online-mode --command extension install --enable pcb3d_importer && \
-	mv /root/.config/blender/4.2/extensions/blender_org/pcb3d_importer /bin/4.2/extensions/system/
+	mv /root/.config/blender/4.2/extensions/blender_org/pcb3d_importer /bin/4.2/extensions/system/ && \
+	# 2.17 isn't compatible with 2.16, so downgrade it && \
+	cd /bin/4.2/extensions/system/pcb3d_importer/ && \
+	curl -L https://github.com/30350n/pcb2blender/releases/download/v2.16-k8.0-b4.2lts/pcb2blender_importer_v2-16_b4-2lts.zip -o importer.zip && \
+	unzip -o importer.zip && \
+	rm importer.zip
 #	sed '/^wheels =/d' /root/.config/blender/4.2/extensions/blender_org/pcb3d_importer/blender_manifest.toml  && \
 #	rm -rf /root/.config/blender/4.2/extensions/blender_org/pcb3d_importer/wheels/
