@@ -1,11 +1,12 @@
-FROM debian:bookworm-slim
-MAINTAINER Salvador E. Tropea <stropea@inti.gob.ar>
+FROM debian:trixie-slim
+LABEL MAINTAINER="Salvador E. Tropea <stropea@inti.gob.ar>"
 LABEL Description="Debian with basic tools for KiBot"
-LABEL org.opencontainers.image.description "Debian with basic tools for KiBot"
+LABEL org.opencontainers.image.description="Debian with basic tools for KiBot"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 COPY dl_deb.py /usr/bin/
+# Avoid /var/cache/debconf/config.dat and /var/cache/debconf/templates.dat back-ups
 COPY debconf.conf /etc/
 RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debian.sources  && \
 	apt-get update  && \
@@ -16,18 +17,11 @@ RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debi
 	echo "KiCost dependencies"  && \
 	apt -y install --no-install-recommends python3-bs4 python3-colorama python3-lxml python3-requests python3-tqdm python3-validators python3-wxgtk4.0 python3-yaml && \
 	echo "KiKit dependencies"  && \
-	apt -y install --no-install-recommends python3-click python3-commentjson python3-markdown2 python3-numpy openscad  && \
-	echo "Nasty patch to support tightframe on KiKit panelization" && \
-	apt -y install --no-install-recommends python3-shapely && \
-	apt -y install python3-pip  && \
-	pip install --break-system-packages shapely && \
-	apt -y remove python3-pip  && \
+	apt -y install --no-install-recommends python3-click python3-commentjson python3-markdown2 python3-numpy openscad python3-shapely && \
 	echo "KiAuto dependencies"  && \
 	apt -y install --no-install-recommends python3-psutil python3-xvfbwrapper recordmydesktop xdotool xsltproc xclip  && \
 	echo "KiDiff dependencies"  && \
 	apt -y install --no-install-recommends xdg-utils  && \
-	sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<!-- <policy domain="coder" rights="none" pattern="PDF" \/> -->/g' /etc/ImageMagick-6/policy.xml && \
-	sed -i 's/<policy domain="coder" rights="none" pattern="PS" \/>/<!-- <policy domain="coder" rights="none" pattern="PS" \/> -->/g' /etc/ImageMagick-6/policy.xml && \
 	echo "Needed for GitHub, seen on git 2.39.1"  && \
 	echo "[safe]" >> /etc/gitconfig && \
 	echo "	directory = *" >> /etc/gitconfig && \
@@ -36,4 +30,3 @@ RUN     sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list.d/debi
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/lib/dpkg/status-old  && \
 	rm -rf /usr/share/icons/Adwaita/
-

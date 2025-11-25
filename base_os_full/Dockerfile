@@ -1,7 +1,7 @@
 FROM ghcr.io/inti-cmnb/base_os:latest
 LABEL MAINTAINER="Salvador E. Tropea <stropea@inti.gob.ar>"
 LABEL Description="Debian with all tools for KiBot"
-LABEL org.opencontainers.image.description "Debian with all tools for KiBot"
+LABEL org.opencontainers.image.description="Debian with all tools for KiBot"
 
 RUN     apt-get update  && \
 	apt-get -y install --no-install-recommends flake8    \
@@ -15,10 +15,10 @@ RUN     apt-get update  && \
 	                                           procps \
 	                                           fonts-dejavu \
 	                                           xlsx2csv gnome-themes-extra-data && \
+	echo "ODBC support (for KiCad 7+) and GIT LFS" && \
+	apt-get -y install libodbc2 libsqliteodbc git-lfs && \
 	echo "PanDoc w/LaTeX"  && \
 	apt-get -y install pandoc texlive-latex-base texlive-latex-recommended && \
-	echo "ODBC support (for KiCad 7+) and GIT LFS" && \
-	apt-get -y install libodbc1 libsqliteodbc git-lfs && \
 	echo "Install Coveralls helpers (KiBot coverage)" && \
 	apt-get -y install curl python3-coverage && \
 	dl_deb.py set-soft/coveralls-python && \
