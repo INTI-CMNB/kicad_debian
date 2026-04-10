@@ -1,0 +1,5 @@
+Types: deb
+URIs: https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu
+Suites: questing
+Components: main
+Trusted: yes
