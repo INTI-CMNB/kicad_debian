@@ -15,3 +15,8 @@ RUN     apt-get -y update && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old && \
 	rm -rf /usr/share/icons/Adwaita/ /*.deb
+
+# KiCad 10 doesn't work without lib tables (i.e. CLI ERC fails, GUI asks to initialize, etc.)
+RUN     export DEST=~/.config/kicad/`kicad_version.py  | cut -d. -f1,2` && \
+	mkdir -p ${DEST} && \
+	cp /usr/share/kicad/template/fp-lib-table  /usr/share/kicad/template/sym-lib-table ${DEST}
