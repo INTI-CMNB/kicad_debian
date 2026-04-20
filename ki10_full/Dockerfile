@@ -8,7 +8,7 @@ ENV TZ=Etc/UTC
 COPY kicad_version.py /usr/bin/
 COPY kicad-10.0-releases.sources /etc/apt/sources.list.d/
 # Used to get WIP versions
-COPY kicad-10.0-nightly.sources /etc/apt/sources.list.d/
+# COPY kicad-10.0-nightly.sources /etc/apt/sources.list.d/
 COPY kicad_3d_install.sh kicad_version.py /usr/bin/
 RUN     apt-get -y update && \
 	apt-get -y install --no-install-recommends kicad kicad-libraries kicad-footprints kicad-symbols kicad-templates && \
