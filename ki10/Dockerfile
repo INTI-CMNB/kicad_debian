@@ -11,7 +11,7 @@ COPY kicad-10.0-releases.sources /etc/apt/sources.list.d/
 # COPY kicad-10.0-nightly.sources /etc/apt/sources.list.d/
 COPY kicad_3d_install.sh kicad_version.py /usr/bin/
 RUN     apt-get -y update && \
-	apt-get -y install --no-install-recommends kicad kicad-libraries kicad-footprints kicad-symbols kicad-templates && \
+	apt-get -y install  --no-install-recommends kicad kicad-libraries kicad-footprints kicad-symbols kicad-templates && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/* /var/cache/debconf/templates.dat-old /var/lib/dpkg/status-old && \
 	rm -rf /usr/share/icons/Adwaita/ /*.deb
